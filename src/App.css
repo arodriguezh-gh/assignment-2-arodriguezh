@@ -1,1 +1,215 @@
 /* Paste your Assignment 1 styles.css here. Keep the icons in src/assets/ so url(assets/...) paths keep working. */
+/* This is your CSS files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body {
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+.site-main {
+    display: flex;
+    min-height: calc(100vh - 64px);
+}
+.site-header {
+    height: 64px;
+    background-color: #dc4c3e;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 32px;
+    gap: 16px;
+}
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.search-box img {
+    width: 22px;
+    margin-right: 10px;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    flex: 0 1 360px;
+    min-width: 0;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.search-box input {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: white;
+    font-size: 14px;
+}
+.search-box input::placeholder {
+    color: white;
+}
+.task-counter {
+    color: white;
+}
+.task-counter img {
+    width: 26px;
+}
+.navbar {
+    display: flex;
+    align-items: flex-start;
+    padding: 36px 24px;
+    flex: 0 0 300px;
+    background: #fefbf2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.nav-list {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 36px 60px;
+}
+.task-list {
+    list-style: none;
+}
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid #dddddd;
+}
+.task-item input[type="checkbox"]:focus-visible {
+    outline: 2px solid #dc4c3e;
+    outline-offset: 3px;
+}
+.task-count {
+    color: #7e7d79;
+    font-size: 12px;
+}
+@media (max-width: 480px) {
+    .navbar {
+        display: none;
+    }
+}
+/* React component layout */
+.main-content h1 {
+    font-size: 20px;
+}
+input, button {
+    font: inherit;
+}
+.task-counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    white-space: nowrap;
+}
+.task-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0;
+}
+.task-item input[type="checkbox"] {
+    appearance: none;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #7e7d79;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.task-item input[type="checkbox"]:checked {
+    background: #dc4c3e;
+    box-shadow: inset 0 0 0 4px white;
+}
+
+/* Make completed tasks visually distinct. */
+.task-item.completed label {
+    text-decoration: line-through;
+    color: #7e7d79;
+}
+
+/* Task filters */
+.filter-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+.filter-btn {
+    border: none;
+    background: transparent;
+    color: inherit;
+    padding: 4px 0;
+    cursor: pointer;
+}
+.filter-btn + .filter-btn::before {
+    content: '|';
+    margin-right: 12px;
+    color: #7e7d79;
+}
+.filter-btn.active {
+    color: #dc4c3e;
+    font-weight: bold;
+}
+.filter-btn:hover {
+    text-decoration: underline;
+}
+
+/* Small layout and interaction refinements */
+.menu-button { flex-shrink: 0; }
+.menu-button img { display: block; width: 24px; }
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 4px;
+}
+.nav-item img { width: 20px; height: 20px; }
+.nav-item:first-child { background: white; font-weight: 500; }
+.task-item label { flex: 1; min-width: 0; overflow-wrap: anywhere; cursor: pointer; }
+.task-form input {
+    flex: 1 1 140px;
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.task-form button, .task-item button {
+    padding: 7px 10px;
+    border: 1px solid #dc4c3e;
+    border-radius: 4px;
+    background: white;
+    color: #dc4c3e;
+    cursor: pointer;
+}
+.task-form button { background: #dc4c3e; color: white; }
+.task-item button { flex-shrink: 0; }
+.task-form button:hover, .task-item button:hover { background: #b63a2e; color: white; }
+button:active { opacity: 0.75; }
+input:focus-visible, button:focus-visible { outline: 2px solid #dc4c3e; outline-offset: 3px; }
+
+@media (max-width: 768px) {
+    .site-header { padding: 0 16px; gap: 12px; }
+    .main-content { padding: 24px 16px; }
+    .filter-buttons { gap: 6px; }
+    .filter-btn + .filter-btn::before { margin-right: 6px; }
+    .task-form label { width: 100%; }
+}
